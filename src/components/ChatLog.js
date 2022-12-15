@@ -1,17 +1,42 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import ChatEntry from './ChatEntry';
 
-function ChatLog({ messagesList }) {
+function ChatLog({ entries }) {
   const messageComponents = [];
-  for (const message of messagesList) {
+
+  for (const message of entries) {
     messageComponents.push(
       // sender
-      <ChatEntry key={message.chatId} />
+      <ChatEntry
+        // id={message.chatId}
+        sender={message.sender}
+        body={message.body}
+        timeStamp={message.timeStamp}
+      />
     );
   }
-  //   console.log(messageComponents);
-  return <div>{messageComponents}</div>;
+
+  // TODO: separate messages
+  // - useState
+  // - add these conditionals to ChatEntry
+  // - update return body for chatEntry to add css changes
+  let align = '';
+
+  // separate messages
+  for (const message of messageComponents) {
+    if (message.sender === 'Vladimir') {
+      // className=left
+      align = 'left';
+    } else if (message.sender === 'Vladimir') {
+      // className=right
+      align = 'left';
+    }
+  }
+
+  // return <div>{messageComponents}</div>;
+  return <div className={align}>{messageComponents}</div>;
 }
 
 ChatEntry.propTypes = {
