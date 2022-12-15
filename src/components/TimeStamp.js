@@ -1,13 +1,13 @@
 import { DateTime } from 'luxon';
 
 // const TimeStamp = (props) => {
-// 	const time = DateTime.fromISO(props.time);
+//   const time = DateTime.fromISO(props.time);
 const TimeStamp = (currentTimeStamp) => {
-	const time = DateTime.fromISO(currentTimeStamp);
-  	const absolute = time.toFormat('MMMM Do YYYY, h:mm:ss a');
-  	const relative = time.toRelative();
+  const time = DateTime.fromISO(currentTimeStamp);
+  const absolute = time.toFormat('MMMM Do YYYY, h:mm:ss a');
+  const relative = time.toRelative();
 
-  	return <span title={absolute}>{relative}</span>;
+  return <span title={absolute}>{relative}</span>;
 };
 
 export default TimeStamp;

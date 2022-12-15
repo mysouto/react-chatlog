@@ -5,17 +5,15 @@ import './ChatEntry.css';
 import TimeStamp from './TimeStamp';
 
 const ChatEntry = ({ body, sender, timeStamp }) => {
-  // TODO: calculate years ('years ago')
-  const entryTime = TimeStamp(timeStamp);
-  // TimeStamp expecting (props)
+// const ChatEntry = (props) => {
+  // const sender = props.testMessage.sender;
+  // const body = props.testMessage.body;
+  // const timeStamp = props.testMessage.timeStamp;
+  // const id = props.testMessage.id;
+  // const liked = props.testMessage.liked;
 
-  // my code for getting get values from TIMESTAMP and JS current time
-  // const currentTimeStamp = new Date();
-  // const currentYear = currentTimeStamp.getFullYear();
-  // const entryTimeStamp = timeStamp;
-  // const newEntryTimeStamp = entryTimeStamp.split(/[- :]/);
-  // const entryYear = newEntryTimeStamp[0];
-  // const difference = currentYear - entryYear;
+  const entryTime = TimeStamp(timeStamp);
+  // const entryTime = TimeStamp(props.testMessage);
 
   return (
     <div className="chat-entry local">
@@ -23,12 +21,9 @@ const ChatEntry = ({ body, sender, timeStamp }) => {
       <h2 className="entry-name">{sender}</h2>
 
       <section className="entry-bubble">
-        {/* <p>Replace with body of ChatEntry</p> */}
-        {body}
+        <p>{body}</p>
 
         <p className="entry-time">{entryTime}</p>
-        {/* <p className="entry-time">Replace with TimeStamp component</p> */}
-        {/* <p className="entry-time">{difference}</p> */}
 
         {/* {chatLike} */}
         <button className="like">🤍</button>
@@ -39,11 +34,11 @@ const ChatEntry = ({ body, sender, timeStamp }) => {
 
 ChatEntry.propTypes = {
   //Fill with correct proptypes
-  // id: PropTypes.number.isRequired,
-  // sender: PropTypes.string.isRequired,
-  // body: PropTypes.string.isRequired,
-  // timeStamp: PropTypes.string.isRequired,
-  // liked: PropTypes.bool.isRequired,
+  id: PropTypes.number.isRequired,
+  sender: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  timeStamp: PropTypes.string.isRequired,
+  liked: PropTypes.bool.isRequired,
 };
 
 export default ChatEntry;

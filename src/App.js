@@ -40,6 +40,7 @@ const App = () => {
       </header>
       <main>
         {/* Wave 01: Render one ChatEntry component */}
+        {/* <ChatEntry testMessage={testMessage}/> */}
         <ChatEntry
           body={testMessage.body}
           sender={testMessage.sender}
