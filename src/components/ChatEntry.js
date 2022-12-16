@@ -7,27 +7,23 @@ import TimeStamp from './TimeStamp';
 
 // const ChatEntry = ({ body, sender, timeStamp }) => {
 const ChatEntry = (props) => {
+  const id = props.id;
   const sender = props.sender;
   const body = props.body;
   const timeStamp = props.timeStamp;
-  const id = props.id;
   const liked = props.liked;
 
   const entryTime = TimeStamp(timeStamp);
   // const entryTime = TimeStamp(props.testMessage);
-  // console.log(entryTime);
 
   let align = '';
-
-  // TODO: use ids
-  if (sender === 'Vladimir') {
-    // left, class:.chat-entry.local,
-    align = 'chat-entry local';
-  } else if (sender === 'Estragon') {
-    // right, class:.chat-entry.remote
+  if (id % 2 === 0) {
     align = 'chat-entry remote';
+    // right
+  } else {
+    align = 'chat-entry local';
+    // left
   }
-  console.log(align);
 
   return (
     <div key={id} className={align}>

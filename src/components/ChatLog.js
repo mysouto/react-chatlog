@@ -11,10 +11,11 @@ const ChatLog = ({entries}) => {
   for (const message of entries) {
     messageComponents.push(
       <ChatEntry
-        // id={message.chatId}
+        id={message.id}
         sender={message.sender}
         body={message.body}
         timeStamp={message.timeStamp}
+        liked={message.liked}
       />
     );
   }
