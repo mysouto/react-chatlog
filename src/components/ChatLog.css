@@ -2,15 +2,3 @@
   margin: auto;
   max-width: 50rem;
 }
-
-.blue-bubble {
-  background-color: #e0ffff;
-}
-
-.left {
-  align-content: left;
-}
-
-.right {
-  align-content: right;
-}
