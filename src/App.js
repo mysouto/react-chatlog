@@ -1,11 +1,38 @@
 import React from 'react';
 import './App.css';
-import chatMessages from './data/messages.json';
+import { useState } from 'react';
 
-import ChatEntry from './components/ChatEntry';
+import chatMessages from './data/messages.json';
 import ChatLog from './components/ChatLog';
 
 const App = () => {
+  // TODO: make a copy of chatMessage
+  // const initialCopy = chatMessages.map((message) => {
+  //   return { ...message };
+  // });
+
+  // add state here
+  // const [messagesList, setMessageList] = useState(initialCopy);
+
+  // function updateMessages(sender) {
+  //   console.log('updateMessages called');
+
+  //   const newMessageList = [];
+
+  //   const messages = chatMessages.map((message) => {
+  //   for (const message in messagesList) {
+  //     if () {
+  //       // className=left
+
+  //     } else if () {
+  //       ...props,
+
+  //     }
+  //     newMessageList.push(newMessage);
+  //   }
+  //   setMessageList(newMessageList)
+  // }
+
   return (
     <div id="App">
       <header>
@@ -14,14 +41,14 @@ const App = () => {
       </header>
       <main>
         {/* Wave 01: Render one ChatEntry component */}
-        {/* <ChatEntry testMessage={testMessage}/> */}
         {/* <ChatEntry
           body={testMessage.body}
           sender={testMessage.sender}
           timeStamp={testMessage.timeStamp}
-        /> */}
+         /> */}
 
         {/* Wave 02: Render ChatLog component  */}
+        {/* <ChatLog entries={initialCopy} /> */}
         <ChatLog entries={chatMessages} />
       </main>
     </div>
@@ -29,30 +56,3 @@ const App = () => {
 };
 
 export default App;
-
-// const testMessage = {
-//   id: 1,
-//   sender: 'Vladimir',
-//   body: 'why are you arguing with me',
-//   timeStamp: '2018-05-29T22:49:06+00:00',
-//   liked: false,
-// };
-
-// const messagesList = [
-//   {
-//     id: 1,
-//     sender: 'Vladimir',
-//     body: 'why are you arguing with me',
-//     timeStamp: '2018-05-29T22:49:06+00:00',
-//     liked: false,
-//   },
-//   {
-//     id: 2,
-//     sender: 'Estragon',
-//     body: 'Because you are wrong.',
-//     timeStamp: '2018-05-29T22:49:33+00:00',
-//     liked: false,
-//   },
-// ];
-
-// const messages = chatMessages;
