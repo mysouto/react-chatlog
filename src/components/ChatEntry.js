@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './ChatEntry.css';
+
 import TimeStamp from './TimeStamp';
 
 // const ChatEntry = ({ body, sender, timeStamp }) => {
@@ -16,8 +17,20 @@ const ChatEntry = (props) => {
   // const entryTime = TimeStamp(props.testMessage);
   // console.log(entryTime);
 
+  let align = '';
+
+  // TODO: use ids
+  if (sender === 'Vladimir') {
+    // left, class:.chat-entry.local,
+    align = 'chat-entry local';
+  } else if (sender === 'Estragon') {
+    // right, class:.chat-entry.remote
+    align = 'chat-entry remote';
+  }
+  console.log(align);
+
   return (
-    <div key={id} className="chat-entry local">
+    <div key={id} className={align}>
       <h2 className="entry-name">{sender}</h2>
 
       <section className="entry-bubble">
@@ -33,7 +46,6 @@ const ChatEntry = (props) => {
 };
 
 ChatEntry.propTypes = {
-  //Fill with correct proptypes
   id: PropTypes.number.isRequired,
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
