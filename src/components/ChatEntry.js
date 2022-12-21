@@ -1,18 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// import { useState } from 'react';
 
 import './ChatEntry.css';
 
 import TimeStamp from './TimeStamp';
 
-// const ChatEntry = ({ body, sender, timeStamp }) => {
-const ChatEntry = (props) => {
-  const id = props.id;
-  const sender = props.sender;
-  const body = props.body;
-  const timeStamp = props.timeStamp;
-  const liked = props.liked;
-
+const ChatEntry = ({
+  id,
+  sender,
+  body,
+  timeStamp,
+  liked,
+  onUpdateMessages,
+}) => {
   const entryTime = TimeStamp(timeStamp);
   // const entryTime = TimeStamp(props.testMessage);
 
@@ -25,6 +26,30 @@ const ChatEntry = (props) => {
     // left
   }
 
+  const updateEmojiOnClick = () => {
+    console.log('Calling updateEmojiOnClick');
+    const newMessage = {
+      id: id,
+      sender: sender,
+      body: body,
+      timeStamp: timeStamp,
+      liked: !liked,
+    };
+    console.log('Updating message');
+
+    onUpdateMessages(newMessage);
+  };
+
+  // TODO
+  // Add behavior to heart button
+  // toggle
+  // event: clicked
+  // if empty heart, className=❤️
+  // if ❤️, className=unlike
+
+  // const updatedEmoji = liked ? ❤️ : 🤍;
+  // const updatedEmoji = liked ? 'red' : 'white';
+
   return (
     <div key={id} className={align}>
       <h2 className="entry-name">{sender}</h2>
@@ -35,7 +60,9 @@ const ChatEntry = (props) => {
         <p className="entry-time">{entryTime}</p>
 
         {/* {chatLike} */}
-        <button className="like">🤍</button>
+        <button className="like" onClick={updateEmojiOnClick}>
+          {/* className{updatedEmoji} */}🤍
+        </button>
       </section>
     </div>
   );

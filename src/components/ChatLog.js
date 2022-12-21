@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 import ChatEntry from './ChatEntry';
 
-const ChatLog = ({entries}) => {
-// const ChatLog = (props) => {
-//   const entries = props.entries;
+const ChatLog = ({ entries, onUpdateMessages }) => {
+  // const ChatLog = (props) => {
+  //   const entries = props.entries;
   const messageComponents = [];
 
   for (const message of entries) {
@@ -16,12 +16,13 @@ const ChatLog = ({entries}) => {
         body={message.body}
         timeStamp={message.timeStamp}
         liked={message.liked}
+        onUpdateMessages={onUpdateMessages}
       />
     );
   }
 
   return <div>{messageComponents}</div>;
-}
+};
 
 ChatEntry.propTypes = {
   //Fill with correct proptypes
