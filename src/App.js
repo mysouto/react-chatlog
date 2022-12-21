@@ -5,33 +5,27 @@ import { useState } from 'react';
 import chatMessages from './data/messages.json';
 import ChatLog from './components/ChatLog';
 
+// Wave 3
+// Add behavior to heart button - toggle
+// Manage click event and state of chat entries
+// App reports messages liked count
+
 const App = () => {
-  // TODO: make a copy of chatMessage
-  // const initialCopy = chatMessages.map((message) => {
-  //   return { ...message };
-  // });
-
   // add state here
-  // const [messagesList, setMessageList] = useState(initialCopy);
+  const [messagesList, setMessageList] = useState(chatMessages);
 
-  // function updateMessages(sender) {
-  //   console.log('updateMessages called');
+  const updateMessages = (messageToUpdate) => {
+    console.log('updateMessages called');
 
-  //   const newMessageList = [];
-
-  //   const messages = chatMessages.map((message) => {
-  //   for (const message in messagesList) {
-  //     if () {
-  //       // className=left
-
-  //     } else if () {
-  //       ...props,
-
-  //     }
-  //     newMessageList.push(newMessage);
-  //   }
-  //   setMessageList(newMessageList)
-  // }
+    const newMessageList = messagesList.map((message) => {
+      if (messageToUpdate.id === message.id) {
+        return messageToUpdate;
+      } else {
+        return message;
+      }
+    });
+    setMessageList(newMessageList);
+  };
 
   return (
     <div id="App">
@@ -49,7 +43,7 @@ const App = () => {
 
         {/* Wave 02: Render ChatLog component  */}
         {/* <ChatLog entries={initialCopy} /> */}
-        <ChatLog entries={chatMessages} />
+        <ChatLog entries={messagesList} onUpdateMessages={updateMessages} />
       </main>
     </div>
   );
