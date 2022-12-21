@@ -15,19 +15,15 @@ const ChatEntry = ({
   onUpdateMessages,
 }) => {
   const entryTime = TimeStamp(timeStamp);
-  // const entryTime = TimeStamp(props.testMessage);
 
   let align = '';
   if (id % 2 === 0) {
     align = 'chat-entry remote';
-    // right
   } else {
     align = 'chat-entry local';
-    // left
   }
 
   const updateEmojiOnClick = () => {
-    console.log('Calling updateEmojiOnClick');
     const newMessage = {
       id: id,
       sender: sender,
@@ -35,20 +31,11 @@ const ChatEntry = ({
       timeStamp: timeStamp,
       liked: !liked,
     };
-    console.log('Updating message');
 
     onUpdateMessages(newMessage);
   };
 
-  // TODO
-  // Add behavior to heart button
-  // toggle
-  // event: clicked
-  // if empty heart, className=❤️
-  // if ❤️, className=unlike
-
-  // const updatedEmoji = liked ? ❤️ : 🤍;
-  // const updatedEmoji = liked ? 'red' : 'white';
+  const updatedEmoji = liked ? '❤️' : '🤍';
 
   return (
     <div key={id} className={align}>
@@ -59,9 +46,8 @@ const ChatEntry = ({
 
         <p className="entry-time">{entryTime}</p>
 
-        {/* {chatLike} */}
         <button className="like" onClick={updateEmojiOnClick}>
-          {/* className{updatedEmoji} */}🤍
+          {updatedEmoji}
         </button>
       </section>
     </div>
@@ -74,6 +60,7 @@ ChatEntry.propTypes = {
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
   liked: PropTypes.bool.isRequired,
+  onUpdateMessages: PropTypes.func.isRequired,
 };
 
 export default ChatEntry;
