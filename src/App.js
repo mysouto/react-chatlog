@@ -11,8 +11,6 @@ const App = () => {
   const [likesCount, setLikesCount] = useState(0);
 
   const updateMessages = (messageToUpdate) => {
-    console.log('updateMessages called');
-
     const newMessageList = messagesList.map((message) => {
       if (messageToUpdate.id === message.id) {
         return messageToUpdate;
@@ -24,13 +22,11 @@ const App = () => {
   };
 
   function incrementCount() {
-    console.log('Calling incrementCount');
     let currentCount = likesCount + 1;
     setLikesCount(currentCount);
   }
 
   const decreaseCount = () => {
-    console.log('Calling decreaseCount');
     let currentCount = likesCount - 1;
     setLikesCount(currentCount);
   };
@@ -44,7 +40,6 @@ const App = () => {
           <div className="widget" id="heartWidget">
             {likesCount} ❤️s{' '}
           </div>
-          {/* <div className=''></div> */}
         </section>
       </header>
       <main>

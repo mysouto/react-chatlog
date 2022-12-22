@@ -31,7 +31,6 @@ const ChatLog = ({
 };
 
 ChatEntry.propTypes = {
-  //Fill with correct proptypes
   entries: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
