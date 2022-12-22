@@ -5,7 +5,6 @@ import './ChatEntry.css';
 import TimeStamp from './TimeStamp';
 
 const ChatEntry = ({
-  key,
   id,
   sender,
   body,
