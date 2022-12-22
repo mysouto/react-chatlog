@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { useState } from 'react';
 
 import './ChatEntry.css';
-
 import TimeStamp from './TimeStamp';
+
+// We will now need to update the ChatEntry component to use the liked field.
+// When we click a heart, the state of the entries will need to update in our App so that it can report the number of likes (❤️s).
+// Consider implementing a helper function to calculate the number of likes (❤️s).
 
 const ChatEntry = ({
   id,
@@ -13,6 +15,8 @@ const ChatEntry = ({
   timeStamp,
   liked,
   onUpdateMessages,
+  incrementCount,
+  decreaseCount,
 }) => {
   const entryTime = TimeStamp(timeStamp);
 
@@ -32,7 +36,16 @@ const ChatEntry = ({
       liked: !liked,
     };
 
+    // if liked is true, add 1 to count state in App
+    // using incrementCount function in App
+    if (newMessage.liked) {
+      incrementCount();
+    } else {
+      decreaseCount();
+    }
+
     onUpdateMessages(newMessage);
+    // countLikes(newMessage);
   };
 
   const updatedEmoji = liked ? '❤️' : '🤍';
@@ -61,6 +74,8 @@ ChatEntry.propTypes = {
   timeStamp: PropTypes.string.isRequired,
   liked: PropTypes.bool.isRequired,
   onUpdateMessages: PropTypes.func.isRequired,
+  incrementCount: PropTypes.func.isRequired,
+  decreaseCount: PropTypes.func.isRequired,
 };
 
 export default ChatEntry;

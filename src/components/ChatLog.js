@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 
 import ChatEntry from './ChatEntry';
 
-const ChatLog = ({ entries, onUpdateMessages }) => {
+const ChatLog = ({
+  entries,
+  onUpdateMessages,
+  incrementCount,
+  decreaseCount,
+}) => {
   // const ChatLog = (props) => {
   //   const entries = props.entries;
   const messageComponents = [];
@@ -11,12 +16,15 @@ const ChatLog = ({ entries, onUpdateMessages }) => {
   for (const message of entries) {
     messageComponents.push(
       <ChatEntry
+        key={message.id}
         id={message.id}
         sender={message.sender}
         body={message.body}
         timeStamp={message.timeStamp}
         liked={message.liked}
         onUpdateMessages={onUpdateMessages}
+        incrementCount={incrementCount}
+        decreaseCount={decreaseCount}
       />
     );
   }
@@ -35,6 +43,9 @@ ChatEntry.propTypes = {
       liked: PropTypes.bool.isRequired,
     })
   ),
+  onUpdateMessages: PropTypes.func.isRequired,
+  incrementCount: PropTypes.func.isRequired,
+  decreaseCount: PropTypes.func.isRequired,
 };
 
 export default ChatLog;
