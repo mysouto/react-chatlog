@@ -4,10 +4,6 @@ import PropTypes from 'prop-types';
 import './ChatEntry.css';
 import TimeStamp from './TimeStamp';
 
-// We will now need to update the ChatEntry component to use the liked field.
-// When we click a heart, the state of the entries will need to update in our App so that it can report the number of likes (❤️s).
-// Consider implementing a helper function to calculate the number of likes (❤️s).
-
 const ChatEntry = ({
   id,
   sender,
@@ -36,8 +32,6 @@ const ChatEntry = ({
       liked: !liked,
     };
 
-    // if liked is true, add 1 to count state in App
-    // using incrementCount function in App
     if (newMessage.liked) {
       incrementCount();
     } else {
@@ -45,7 +39,6 @@ const ChatEntry = ({
     }
 
     onUpdateMessages(newMessage);
-    // countLikes(newMessage);
   };
 
   const updatedEmoji = liked ? '❤️' : '🤍';

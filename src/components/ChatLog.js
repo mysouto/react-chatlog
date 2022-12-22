@@ -9,8 +9,6 @@ const ChatLog = ({
   incrementCount,
   decreaseCount,
 }) => {
-  // const ChatLog = (props) => {
-  //   const entries = props.entries;
   const messageComponents = [];
 
   for (const message of entries) {
