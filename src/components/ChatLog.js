@@ -14,7 +14,7 @@ const ChatLog = ({
   for (const message of entries) {
     messageComponents.push(
       <ChatEntry
-        key={message.id}
+        // key={message.id}
         id={message.id}
         sender={message.sender}
         body={message.body}
