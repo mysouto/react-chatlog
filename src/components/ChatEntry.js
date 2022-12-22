@@ -61,14 +61,14 @@ const ChatEntry = ({
 };
 
 ChatEntry.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.number,
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   timeStamp: PropTypes.string.isRequired,
-  liked: PropTypes.bool.isRequired,
-  onUpdateMessages: PropTypes.func.isRequired,
-  incrementCount: PropTypes.func.isRequired,
-  decreaseCount: PropTypes.func.isRequired,
+  liked: PropTypes.bool,
+  onUpdateMessages: PropTypes.func,
+  incrementCount: PropTypes.func,
+  decreaseCount: PropTypes.func,
 };
 
 export default ChatEntry;
